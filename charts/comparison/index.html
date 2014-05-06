@@ -1,0 +1,134 @@
+<div data-role="view" class="body" data-layout="drawer-layout" data-title="Comparison Chart" data-show="loadChart">
+<link rel="stylesheet" href="../comparison/css/style.css">
+<div class="container">
+	<div class="header">
+		<span class="bookmark"></span><h1 class="main_title"></h1>
+	</div>
+	<div class="clear"></div>
+
+	<div class="content">
+		<div class="widget_title_s bottom15"><span class="sub_title">TITLE</span> graph for <span class="index_current">2013</span></div>
+		<canvas id="linechart" height="200" width="688"></canvas>
+		<div class="clear"></div>
+
+		<div class="slider_outer horizontal" id="lineslider">
+			<div class="slider_inner">
+				<ul class="marker"></ul>
+				<div class="slider"></div>
+			</div>
+		</div>
+
+
+		<div class="clear"></div>
+
+		<div class="col1 legend margin15"></div>
+
+	</div>
+	<div class="clear"></div>
+
+
+	<div class="comparison">
+		<div class="widget_title top15 stats_title">Belia Vs. Penduduk</div>
+		<div class="widget_title_s">Difference for <span class="index_current">2013</span></div>
+		<div class="bar top15" id="compare" ></div>
+	<div class="clear"></div>
+
+	<div class="widget_title_s margin15">Difference between <span class="home subtitle">SUBTITLE</span> and <span class="away subtitle">SUBTITLE</span></div>
+
+	<div class="bar_summary">
+		<div class="widget_title bottom15 midtitle"><span class="home subtitle">SUBTITLE</span> vs. <span class="away subtitle">SUBTITLE</span></div>
+	
+			<div class="col2 vseparator home">
+				
+				<div class="slider_outer vertical" id="pieslider">
+					<div class="slider_inner">
+						<ul class="marker"></ul>
+						<div class="slider"></div>
+					</div>
+				</div>
+
+				<canvas id="Lpie" height="100px" width="100px"></canvas>				
+				<div class="clear"></div>
+				<div class="Lpcnt"></div>
+			</div>
+
+			<div class="col2 away">
+				<canvas id="Rpie" height="100px" width="100px"></canvas>
+				<div class="clear"></div>
+				<div class="Rpcnt"></div>
+			</div>
+
+		<div class="clear"></div>
+
+		<div class="widget_title_s margin15">Difference between <span class="home subtitle">SUBTITLE</span> vs. <span class="away subtitle">SUBTITLE</span>, before and after <span class="index_current">2013</span></div>
+			<div class="clear splitter1 vseparator"></div>
+
+			<div class="col3 home">
+			    <dl class="row right15 year_aft">
+			        <dd class="aft_pcnt med up">888%</dd>
+			        <dd class="hline right"></dd>
+			        <dd class="aft small">888</dd>
+					<div class="getYearAft hide hover">getYearAft Test</div>
+			    </dl>
+			    <dl class="row right15 year_now">
+			        <dd class="now_pcnt med-large" style="color:#2C5E19;">100%</dd>
+			        <dd class="hline right"></dd>
+			        <dd class="now small">888,888</dd>
+			    </dl>
+			    <dl class="row right15 year_bfr">
+			        <dd class="bfr_pcnt med up">888%</dd>
+			        <dd class="hline right"></dd>
+			        <dd class="bfr small">888,888</dd>
+					<div class="getYearBfr hide hover">getYearBfr Test</div>
+			    </dl>
+			</div>
+
+			<div class="col3 year_timeline">
+		        <span class="grey50 med index_after">888</span>
+		        <span class="grey50 med-large index_current">888</span>
+		        <span class="grey50 med index_before">888</span>
+			</div>
+
+			<div class="col3 away">
+			    <dl class="row left15 year_aft">
+			        <dd class="aft_pcnt med up">888%</dd>
+			        <dd class="hline left"></dd>
+			        <dd class="aft small">888</dd>
+			    </dl>
+			    <dl class="row left15 year_now">
+			        <dd class="now_pcnt med-large" style="color:#2C5E19;">100%</dd>
+			        <dd class="hline left"></dd>
+			        <dd class="now small">888,888</dd>
+			    </dl>
+			    <dl class="row left15 year_bfr">
+			        <dd class="bfr_pcnt med up">888%</dd>
+			        <dd class="hline left"></dd>
+			        <dd class="bfr small">888,888</dd>
+			    </dl>
+			</div>
+
+	<div class="clear"></div>
+		<div class="clear splitter1 vseparator"></div>
+		<div class="widget_title_s margin15">Difference between <span class="home subtitle">SUBTITLE</span> vs. <span class="away subtitle">SUBTITLE</span>, in <span class="index_current">2013</span></div>
+
+			<div class="clear splitter1 vseparator margin15"></div>
+			<div style="text-align:center;"><canvas id="Bpie" height="100px" width="100px"></canvas></div>
+			<div class="clear"></div>
+
+			<div class="clear splitter1 vseparator top15"></div>
+			<div class="clear splitter2 bottom15"></div>
+
+			<div class="col2 home_diff"></div>
+			<div class="col2 away_diff"></div>
+	</div>
+	</div>
+	
+</div>
+
+
+
+
+
+<script src='charts/comparison/js/include.js'></script>
+
+</div>

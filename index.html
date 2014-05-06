@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Mi-Bis Mobile</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="styles/kendo.mobile.all.min.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <script src="console.js"></script>
+</head>
+<body>
+
+<div data-role="view" id="dashboard" data-layout="drawer-layout" data-title="Dashboard" data-show="loadDashMenus">
+    <div><ul id="tagsList" data-role="listview" data-template="dashItemTemplate" data-source="app.tags"></ul></div>
+</div>
+
+<div data-role="view" id="favourites" data-layout="drawer-layout" data-title="Favourites" class="subpage" data-show="loadfav">
+	<ul data-role="listview" class="listFav" data-role="listview" data-template="favItemTemplate" data-source="app.fav"></ul>
+</div>
+
+<div data-role="view" id="history" data-layout="drawer-layout" data-title="History">
+    <div>
+    	<h4 data-enable-swipe="1" data-swipe="myTouch.swipe">Last Open</h4>
+    	<ul id="tagsList" data-role="listview" data-template="listItemAction" data-source="app.tags"></ul> 	
+    </div>
+    <div>
+		<h4 data-enable-swipe="1" data-swipe="myTouch.swipe">Recently Added</h4>
+	    <ul id="tagsList" data-role="listview" data-template="listItemAction" data-source="app.tags"></ul>   	
+    </div>
+</div>
+
+
+<div data-role="view" id="reports" data-layout="drawer-layout" data-title="Reports" data-show="loadfav">
+    <ul data-role="listview" id="webserviceList" data-role="listview" data-template="dashItemTemplate" data-source="app.reports"></ul>
+</div>
+
+<div data-role="view" id="tags" data-layout="drawer-layout" data-title="Tags">
+    <ul data-role="listview">
+        <li>Build enterprise apps</li>
+        <li>Fw: Regarding Multiline textbox</li>
+        <li>Away next week</li>
+        <li>Fw: Your Costume is ready</li>
+        <li>Update completed</li>
+        <li>Survey</li>
+        <li>Problem with this account</li>
+        <li>Advice For Designers</li>
+        <li>Fw: Missing Book</li>
+        <li>Fun & useful reading</li>
+    </ul>
+</div>
+
+<div data-role="view" id="webservices" data-layout="drawer-layout" data-title="Web Services">
+    <ul data-role="listview" id="webserviceList" data-role="listview" data-template="listItemNoAction" data-source="app.webservices"></ul>
+</div>
+
+
+<div data-role="drawer" id="my-drawer" style="width: 270px" data-views="['dashboard', 'favourites', 'history', 'webservices', 'reports', 'tags']">
+    <ul data-role="listview" data-type="group">
+        <li>Mi-Bis Mobile
+            <ul>
+                <li><a href="#dashboard" data-transition="none">Dashboard</a></li>
+                <li><a href="#favourites" data-transition="none">Favourites</a></li>
+                <li><a href="#history" data-transition="none">History</a></li>
+                <li><a href="#reports" data-transition="none">Reports</a></li>
+                <li><a href="#tags" data-transition="none">Tags</a></li>
+                <li><a href="#webservices" data-transition="none">Web Services</a></li>
+            </ul>
+        </li>
+        <li>Account
+            <ul>
+                <li data-icon="settings">Settings</li>
+                <li data-icon="off">Log Out</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div data-role="layout" data-id="drawer-layout">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left"></a>
+            <a class="nav-button" data-align="left" data-role="backbutton" style="display:none;">Back</a>
+            <span data-role="view-title"></span>
+            <a data-align="right" data-role="button" class="nav-button" data-icon="drawer-button" href="#/"></a>
+            <a data-align="right" data-role="button" class="nav-button" data-icon="drawer-button" href="#/"></a>
+            <a data-align="right" data-role="button" class="nav-button" data-icon="search" href="#/"></a>
+        </div>
+    </header>
+</div>
+
+<div data-role="view" id="pandan_indah" data-layout="drawer-layout" data-title="Web Services" data-template="listItemAction" data-source="app.tags">
+Test View
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="listItemNoAction" type="text/x-kendo-template">
+# for (var i = 0; i < data.length; i++) { #
+	<div data-role="view" class="subpage" id="#=data[i]['url']#" data-layout="drawer-layout" data-title="#=data[i]['name']#" data-show="loadfav">
+	    <ul data-role="listview" class="listFav">
+# 
+	var datas = data[i]['datas'];
+	var favBtnAttr;			
+	for (var j = 0; j < datas.length; j++) {
+		var fav = datas[j]['fav'];
+		if(typeof fav != 'undefined'){
+			if(fav == 0){
+				favBtnAttr = 'data-icon="star-disabled" id="fav_'+datas[j]['id']+'" data-id="'+datas[j]['id']+'" ';
+			} else {
+				favBtnAttr = 'data-icon="star" id="fav_'+datas[j]['id']+'" data-id="'+datas[j]['id']+'" ';
+			}
+		}
+#
+	        <li>	        	
+	        	<a #=favBtnAttr# data-click="addToFav" data-role="button" style="display: inline-block; text-align: center; border:none; padding: 0px;"></a>
+				<a href="\\#charts/comparison/?data=#=datas[j]['id']#">#=datas[j]['name']#</a>				
+	        </li>
+			# } #    
+	    </ul>	
+	</div>
+# } #
+</script> 
+
+
+<script id="listItemAction" type="text/x-kendo-template">
+    <div class="wrapper">
+    <div class="action" data-role="touch" data-tap="app.events.tap">
+		<a data-role="button" class="btn-archive" data-icon="edit">Edit</a>
+		<a data-role="button" class="btn-archive" data-icon="delete">Delete</a>
+    </div>
+    <div class="item" data-role="touch" data-drag="app.events.dragging" data-dragend="app.events.dragend">
+		<a href="\\##=url#" data-transition="none">#=name#</a>
+    </div>
+</script>
+
+<script id="dashItemTemplate" type="text/x-kendo-template">
+	<a href="\\##=url#" data-transition="none">#=name#</a>
+</script>
+
+<script id="favItemTemplate" type="text/x-kendo-template">
+#
+console.log(app.fav)
+#
+	<a data-icon="star" id="fav_#=id#" data-id="#=id#"  data-click="addToFav" data-role="button" style="display: inline-block; text-align: center; border:none; padding: 0px;"></a>
+	<a href="\\#charts/comparison/?data=#=id#" data-transition="none">#=name#</a>
+</script>
+
+
+<link rel="stylesheet" href="styles/charts/jquery-ui.min.css">
+<link rel="stylesheet" href="styles/charts/kendo.dataviz.min.css">
+<script src="js/charts/Chart.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="js/charts/jquery.ui.touch-punch.min.js"></script>
+<script src='js/charts/psMathStats.min.js'></script>
+<script src='js/charts/pusher.color.min.js'></script>
+
+
+<script src="js/app.js"></script>
+
+<div class="console"></div>
+</body>
+</html

@@ -1,0 +1,107 @@
+<div data-role="view" class="body" data-layout="drawer-layout" data-title="Comparison Chart" data-show="loadChart">
+<link rel="stylesheet" href="charts/suggestive/css/style.css">
+
+<div class="container">
+
+	<div class="content">
+		<div class="widget_title top15">Suggestive Chart</div>
+		<div class="widget_title_s bottom15">Graf Belia Di Daerah-Daerah Sekitar Johor Untuk Tahun <span class="widget_tahun">2013</span></div>
+		<canvas id="linechart" height="200" width="688"></canvas>
+		<div class="clear"></div>
+
+
+		<div class="clear"></div>
+
+		<div class="col2 legend margin15">
+			<dl class="col2">
+				<dt class="grey50 left">Belia</dt>
+				<dd class="belia_total small left">198,060</dd>
+			</dl>
+			<dl class="col2 active">
+				<dt class="grey50 left">Penduduk</dt>
+				<dd class="pop_total small left">198,060</dd>
+			</dl>
+		</div>
+
+	</div>
+	<div class="clear"></div>
+
+
+	<div class="comparison">
+		<div class="widget_title top15">Top Five data</div>
+		<div class="widget_title_s">Perbandingan Antara Daerah Untuk Tahun <span class="widget_tahun">2013</span></div>
+		<div class="bar top15" id="compare" ></div>
+	<div class="clear"></div>
+	<div class="widget_title top15">Compare main data With User selection</div>
+	<div class="widget_title_s bottom15">Perbandingan di antara <span class="thisdistrict">Batu Pahat</span> dengan <span class="thatdistrict">Lorem</span></div>
+	<div class="bar_summary">
+		<div class="widget_title bottom15"><span class="thisdistrict">Batu Pahat</span> vs. <span class="thatdistrict">Lorem</span></div>
+	
+			<div class="col2 vseparator">
+				<canvas id="pie" height="100px" width="100px"></canvas>
+				<div class="clear"></div>
+			    <dl class="col2">
+			        <dt class="grey50">Perbezaan Belia</dt>
+			        <dd class="belia_pcnt large">48%</dd>
+			        <dd class="belia_total small"></dd>
+			    </dl>
+			    <dl class="col2">
+			        <dt class="grey50">Perbezaan Penduduk</dt>
+			        <dd class="pop_pcnt large">48%</dd>
+			        <dd class="pop_total small"></dd>
+			    </dl>
+			</div>
+			<div class="col2">
+				<canvas id="cpie" height="100px" width="100px"></canvas>
+				<div class="clear"></div>
+			    <dl class="col2">
+			        <dt class="grey50">Perbezaan Belia</dt>
+			        <dd class="Bbelia_pcnt large">48%</dd>
+			        <dd class="Bbelia_total small"></dd>
+			    </dl>
+			    <dl class="col2">
+			        <dt class="grey50">Perbezaan Penduduk</dt>
+			        <dd class="Bpop_pcnt large">48%</dd>
+			        <dd class="Bpop_total small"></dd>
+			    </dl>
+			</div>
+
+
+		<div class="clear splitter1 vseparator"></div>
+		<div class="widget_title top15">Summarize main data With User selection</div>
+		<div class="widget_title_s bottom15">Perbezaan belia di antara <span class="thisdistrict">Batu Pahat</span> dengan <span class="thatdistrict">Lorem</span> tahun <span class="widget_tahun">2013</span></div>
+
+			<div class="clear splitter1 vseparator margin15"></div>
+			<div style="text-align:center;"><canvas id="Dpie" height="100px" width="100px"></canvas></div>
+			<div class="clear"></div>
+
+			<div class="clear splitter1 vseparator top15"></div>
+			<div class="clear splitter2 bottom15"></div>
+
+			<div class="col2 home_diff">
+			    <dl class="">
+			        <dt class="grey50"><span class="thisdistrict">Batu Pahat</span></dt>
+			        <dd class="Dbelia_diff_pcnt large">40%</dd>
+			        <dd class="Dbelia_diff_total small">198,060</dd>
+			    </dl>
+			</div>
+			<div class="col2 away_diff">
+			    <dl class="">
+			        <dt class="grey50"><span class="thatdistrict">Lorem</span></dt>
+			        <dd class="Dbelia_diff_pcnt large">60%</dd>
+			        <dd class="Dbelia_diff_total small">198,060</dd>
+			    </dl>
+			</div>
+	</div>
+	</div>
+
+
+</div>
+
+<script>
+	window.javData = '[{"id":100, "district": "Batu Pahat", "state": "Johor", "penduduk": [239600,309594,390200,401963,431400,490374], "belia": [71367,92550,163100,92055,176900,198060]},{"id":101, "district": "Johor Bahru", "state": "Johor", "penduduk": [561811,1033498,1297100,951654,1436500,1499264], "belia": [424115,510839,536900,347064,691700,784733]},{"id":102, "district": "Kluang", "state": "Johor", "penduduk": [170198,238628,283300,205727,300600,334168], "belia": [75642,67823,118000,82198,130600,131227]},{"id":103, "district": "Kota Tinggi", "state": "Johor", "penduduk": [91193,112923,225600,141832,193900,205378], "belia": [61096,67616,96200,63065,82200,82806]},{"id":104, "district": "Kulaijaya", "state": "Johor", "penduduk": [0,0,0,147916,261600,269824], "belia": [0,0,0,66959,130500,136095]},{"id":105, "district": "Ledang", "state": "Johor", "penduduk": [0,0,0,102323,139400,157782], "belia": [0,0,0,30337,55900,66506]},{"id":106, "district": "Mersing", "state": "Johor", "penduduk": [61773,75089,81300,54883,70600,84592], "belia": [20557,32247,34800,16089,27500,30052]},{"id":107, "district": "Muar", "state": "Johor", "penduduk": [187965,232583,372500,162437,255100,285921], "belia": [117530,99382,155000,81140,101300,101643]},{"id":108, "district": "Pontian", "state": "Johor", "penduduk": [69734,103746,163100,128733,157400,169979], "belia": [41242,64242,68300,48453,63300,73449]},{"id":109, "district": "Segamat", "state": "Johor", "penduduk": [173140,195946,197100,156529,193200,217422], "belia": [59530,68731,81800,49164,79000,82434]}]';
+
+</script>
+<script src='charts/suggestive/js/include.js'></script>
+<script src='charts/suggestive/js/action.js'></script>
+</div>
